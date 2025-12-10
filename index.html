@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SkillPath AI — Personalized Learning Roadmaps</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- NAVBAR -->
+    <header class="site-header">
+    <div class="container nav-wrap">
+        <a href="#" class="brand">SkillPath<span class="accent">AI</span></a>
+        <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+    </button>
+
+    <nav id="mainNav" class="nav">
+        <ul class="nav-list">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button id="generateBtn" class="btn primary">Generate Roadmap</button></li>
+        </ul>
+    </nav>
+    </div>
+</header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-left">
+        <h1>Personalized learning roadmaps powered by AI</h1>
+        <p class="lead">Tell us what you know and where you want to go — get a step-by-step plan, daily tasks, and progress tracking.</p>
+        <div class="hero-ctas">
+          <button id="heroGenerate" class="btn primary">Generate Roadmap</button>
+          <a href="#features" class="btn ghost">See features</a>
+        </div>
+        <ul class="hero-stats">
+          <li><strong id="usersCount">1.2k</strong><span>users</span></li>
+          <li><strong>95%</strong><span>completion rate</span></li>
+          <li><strong>Deployed</strong><span>Vercel/Render</span></li>
+        </ul>
+      </div>
+
+      <div class="hero-right">
+        <div class="mockup-card">
+          <h3>Your sample roadmap (preview)</h3>
+          <ul id="roadmapPreview" class="roadmap-list">
+            <li class="task">Day 1 — JavaScript fundamentals</li>
+            <li class="task">Day 2 — DOM & Fetch</li>
+            <li class="task">Day 3 — Build landing page</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2 class="section-title">Why SkillPath AI</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <h3>Personalized</h3>
+          <p>Roadmaps tailored to your goals and time availability.</p>
+        </div>
+        <div class="feature">
+          <h3>Track Progress</h3>
+          <p>Daily tasks, streaks, and completion analytics.</p>
+        </div>
+        <div class="feature">
+          <h3>Export & Share</h3>
+          <p>Export your plan as PDF or share a public link.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP / POSTS -->
+  <section id="roadmap" class="section light">
+    <div class="container">
+      <h2 class="section-title">Roadmap Preview & Posts</h2>
+
+      <!-- Posts loaded from posts.json -->
+      <div id="posts" class="posts-grid">
+        <!-- JS will populate posts here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS / DUMMY JSON -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <h2 class="section-title">What users say</h2>
+      <div id="testimonialsGrid" class="testimonials-grid">
+        <!-- JS will load testimonials from posts.json -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact-section">
+    <div class="container contact-grid">
+      <div>
+        <h2 class="section-title">Get in touch</h2>
+        <p>Questions? Want to demo your roadmap? Drop a message.</p>
+      </div>
+
+      <form id="contactForm" class="contact-form">
+        <label>
+          <span>Name</span>
+          <input id="nameInput" type="text" name="name" required />
+        </label>
+        <label>
+          <span>Email</span>
+          <input id="emailInput" type="email" name="email" required />
+        </label>
+        <label>
+          <span>Message</span>
+          <textarea id="messageInput" name="message" rows="4" required></textarea>
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Send</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>&copy; <span id="currentYear"></span> SkillPath AI</div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ROADMAP MODAL -->
+  <div id="roadmapModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button id="closeModal" class="modal-close" aria-label="Close modal">&times;</button>
+      <h2>Create your roadmap</h2>
+      <form id="roadmapForm" class="roadmap-form">
+        <label>
+          <span>Known skills (comma separated)</span>
+          <input id="knownSkills" type="text" placeholder="HTML, CSS, JS" required />
+        </label>
+
+        <label>
+          <span>Target (role or skill)</span>
+          <input id="targetSkill" type="text" placeholder="Full Stack Developer" required />
+        </label>
+
+        <label>
+          <span>Hours per day</span>
+          <input id="hoursPerDay" type="number" min="1" max="10" value="2" required />
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Generate</button>
+          <button type="button" id="cancelModal" class="btn ghost">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
